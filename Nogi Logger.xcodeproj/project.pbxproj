@@ -11,6 +11,10 @@
 		03EC73C02B14B2CA001E94EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC73BF2B14B2CA001E94EB /* ContentView.swift */; };
 		03EC73C22B14B2CB001E94EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EC73C12B14B2CB001E94EB /* Assets.xcassets */; };
 		03EC73C62B14B2CB001E94EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EC73C52B14B2CB001E94EB /* Preview Assets.xcassets */; };
+		03EC73CD2B14B5CE001E94EB /* WorkoutWithDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC73CC2B14B5CE001E94EB /* WorkoutWithDate.swift */; };
+		03EC73D02B14B84B001E94EB /* WorkoutStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC73CF2B14B84B001E94EB /* WorkoutStore.swift */; };
+		03EC73D32B14C421001E94EB /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC73D22B14C421001E94EB /* Workout.swift */; };
+		03EC73D52B14C4E4001E94EB /* AddTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC73D42B14C4E4001E94EB /* AddTrainingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		03EC73C12B14B2CB001E94EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03EC73C32B14B2CB001E94EB /* Nogi_Logger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Nogi_Logger.entitlements; sourceTree = "<group>"; };
 		03EC73C52B14B2CB001E94EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		03EC73CC2B14B5CE001E94EB /* WorkoutWithDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutWithDate.swift; sourceTree = "<group>"; };
+		03EC73CF2B14B84B001E94EB /* WorkoutStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStore.swift; sourceTree = "<group>"; };
+		03EC73D22B14C421001E94EB /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		03EC73D42B14C4E4001E94EB /* AddTrainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrainingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,9 @@
 			children = (
 				03EC73BD2B14B2CA001E94EB /* Nogi_LoggerApp.swift */,
 				03EC73BF2B14B2CA001E94EB /* ContentView.swift */,
+				03EC73D42B14C4E4001E94EB /* AddTrainingView.swift */,
+				03EC73D12B14B859001E94EB /* Store */,
+				03EC73CE2B14B5D2001E94EB /* Model */,
 				03EC73C12B14B2CB001E94EB /* Assets.xcassets */,
 				03EC73C32B14B2CB001E94EB /* Nogi_Logger.entitlements */,
 				03EC73C42B14B2CB001E94EB /* Preview Content */,
@@ -67,6 +78,23 @@
 				03EC73C52B14B2CB001E94EB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		03EC73CE2B14B5D2001E94EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03EC73CC2B14B5CE001E94EB /* WorkoutWithDate.swift */,
+				03EC73D22B14C421001E94EB /* Workout.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		03EC73D12B14B859001E94EB /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				03EC73CF2B14B84B001E94EB /* WorkoutStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +168,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				03EC73C02B14B2CA001E94EB /* ContentView.swift in Sources */,
+				03EC73D02B14B84B001E94EB /* WorkoutStore.swift in Sources */,
 				03EC73BE2B14B2CA001E94EB /* Nogi_LoggerApp.swift in Sources */,
+				03EC73D32B14C421001E94EB /* Workout.swift in Sources */,
+				03EC73D52B14C4E4001E94EB /* AddTrainingView.swift in Sources */,
+				03EC73CD2B14B5CE001E94EB /* WorkoutWithDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
