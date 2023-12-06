@@ -15,6 +15,8 @@ import Foundation
 struct Workout: Identifiable, Codable {
     var id = UUID()
     var name: String
+    var startTime: Date
+    var endTime: Date
     var notes: String
     var submissions: Int
     var taps: Int
@@ -28,6 +30,8 @@ struct Workout: Identifiable, Codable {
     
     static var sample: Workout {
         return Workout(name: "NoGi",
+                       startTime: Date.now,
+                       endTime: Date.now + 3600,
                        notes: "",
                        submissions: 5,
                        taps: 2,
@@ -47,6 +51,8 @@ extension Workout {
             let randomName = ["Gi", "NoGi"].randomElement() ?? "NoGi"
             
             return Workout(name: randomName,
+                           startTime: Date.now,
+                           endTime: Date.now + 3600,
                            notes: "Today i got my blue belt",
                            submissions: Int.random(in: 0...5),
                            taps: Int.random(in: 0...2),

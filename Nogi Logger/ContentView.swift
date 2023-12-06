@@ -12,7 +12,11 @@ struct ContentView: View {
     @State private var workoutStore = WorkoutStore()
     
     var body: some View {
-        Text("hello")
+        NavigationStack {
+            NavigationLink(destination: AddTrainingView()) {
+                Text("Add workout")
+            }
+        }
     }
 }
 
