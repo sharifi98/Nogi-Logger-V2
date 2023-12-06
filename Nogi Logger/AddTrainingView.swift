@@ -10,6 +10,7 @@ import SwiftUI
 struct AddTrainingView: View {
     
     var workoutType = ["Gi", "NoGi"]
+    var roundLengthRange = 1...8
     @State var selectedWorkoutName = "Gi"
     
     @State private var selectedStartTime: Date = Date()
@@ -26,8 +27,8 @@ struct AddTrainingView: View {
     @State private var taps = 0
     @State private var sweeps = 0
     @State private var takedowns = 0
-    @State private var rounds = 0
-    @State private var roundLength = 0
+    @State private var rounds = 0.0
+    @State private var roundLength = 5
     @State private var bodyWeight = String("0")
     @State private var injured = false
     
@@ -36,7 +37,6 @@ struct AddTrainingView: View {
     var body: some View {
         NavigationStack {
             List {
-                
                 
                 Section {
                     nameSection
@@ -47,17 +47,69 @@ struct AddTrainingView: View {
                 }
                 
                 Section {
-                    HStack {
-                        Stepper("Submissions", value: $submissions)
-                        Text("\(submissions)")
-                    }
-                    
+                    statisticsSection
+                }
+                
+                Section {
+                    roundsRolledSection
+                }
+                
+                Section {
+                    roundLengthSection
                 }
             }
-            
             .navigationBarTitle(Text(formattedCurrentDate()))
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    
+    private var roundLengthSection: some View {
+        Section {
+            Text("Round length (Minutes)")
+            Picker("Round length", selection: $roundLength) {
+                ForEach(roundLengthRange, id: \.self) { number in
+                    Text("\(number)").tag(number)
+                }
+            }
+            .pickerStyle(.palette)
+        }
+        .padding(.bottom)
+    }
+    
+    private var roundsRolledSection: some View {
+        VStack {
+            Text("Rounds Rolled: \(rounds, specifier: "%.0f")")
+            HStack{
+                Text("0")
+                Slider(value: $rounds, in: 0...20, step: 1.0)
+                Text("20")
+            }
+        }
+    }
+    
+    private var statisticsSection: some View {
+        Section {
+            HStack {
+                Stepper("Submissions", value: $submissions)
+                Text("\(submissions)")
+            }
+            
+            HStack {
+                Stepper("Taps", value: $taps)
+                Text("\(taps)")
+            }
+            
+            HStack {
+                Stepper("Sweeps", value: $sweeps)
+                Text("\(sweeps)")
+            }
+            
+            HStack {
+                Stepper("Takedowns", value: $takedowns)
+                Text("\(takedowns)")
+            }
+        }
+
     }
     
     private var bodyweightSection: some View {
