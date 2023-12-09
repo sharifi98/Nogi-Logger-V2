@@ -22,17 +22,23 @@ struct AddTrainingView: View {
     @FocusState private var isBodyWeightFieldFocused: Bool
     
     @State private var name = ""
+    
     @State private var notes = "Notes..."
+    @State private var showEditNotesView = false
+    
+    
     @State private var submissions = 0
     @State private var taps = 0
     @State private var sweeps = 0
     @State private var takedowns = 0
     @State private var rounds = 0.0
     @State private var roundLength = 5
-    @State private var bodyWeight = String("0")
     @State private var injured = false
     
     
+    @State private var showBodyWeightWheel = false
+    @State private var bodyWeight = String("0")
+    @State private var selectedWeight = 60.0
     
     var body: some View {
         NavigationStack {
@@ -43,7 +49,7 @@ struct AddTrainingView: View {
                     startTimeSection
                     endTimeSection
                     bodyweightSection
-                    TextField("\(notes)", text: $notes)
+                    notesSection
                 }
                 
                 Section {
@@ -61,6 +67,21 @@ struct AddTrainingView: View {
             .navigationBarTitle(Text(formattedCurrentDate()))
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    
+    private var notesSection: some View {
+        
+            VStack {
+                Button {
+                    showEditNotesView.toggle()
+                }label: {
+                    TextField("\(notes)", text: $notes)
+                }
+                
+                NavigationLink(destination: EditNotesView(notes: $notes), isActive: $showEditNotesView) {
+                    EmptyView()
+                }
+            }
     }
     
     private var roundLengthSection: some View {
@@ -112,36 +133,36 @@ struct AddTrainingView: View {
 
     }
     
+    
+    
     private var bodyweightSection: some View {
         Button {
-            showingEditBodyweight.toggle()
-            isBodyWeightFieldFocused = true
+            showBodyWeightWheel.toggle()
         } label: {
             HStack {
                 Text("Bodyweight")
                 Spacer()
-                Text(bodyWeight)
+                Text(String(format: "%.1f kg", selectedWeight))
             }
         }
-        .sheet(isPresented: $showingEditBodyweight) {
-            VStack(alignment: .center) {
-                Text("Enter your Bodyweight")
-                HStack(alignment: .center) {
-                    TextField("Bodyweight", text: $bodyWeight)
-                        .keyboardType(.decimalPad)
-                        .focused($isBodyWeightFieldFocused)
-                        .padding()
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    
+        .sheet(isPresented: $showBodyWeightWheel) {
+            VStack {
+                Picker("Bodyweight", selection: $selectedWeight) {
+                    // Create an array of weights with one decimal place
+                    ForEach((300...2000).map { Double($0) / 10 }, id: \.self) { weight in
+                        Text(String(format: "%.1f kg", weight))
+                    }
                 }
-                Button("Done") {
-                    showingEditBodyweight = false
+                .pickerStyle(.wheel)
+                .frame(height: 150)
+                // Optionally, add a button to confirm the selection
+                Button("Confirm") {
+                    showBodyWeightWheel = false
                 }
                 .padding()
             }
-            .padding()
+            .presentationDetents([.height(250)])
         }
-
     }
     
     private var startTimeSection: some View {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03E29F8A2B24E3FA00753FAA /* EditNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E29F892B24E3FA00753FAA /* EditNotesView.swift */; };
+		03E29F8C2B24EAEC00753FAA /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E29F8B2B24EAEC00753FAA /* WorkoutView.swift */; };
+		03E29F8E2B24EF5500753FAA /* example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E29F8D2B24EF5500753FAA /* example.swift */; };
 		03EC73BE2B14B2CA001E94EB /* Nogi_LoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC73BD2B14B2CA001E94EB /* Nogi_LoggerApp.swift */; };
 		03EC73C02B14B2CA001E94EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EC73BF2B14B2CA001E94EB /* ContentView.swift */; };
 		03EC73C22B14B2CB001E94EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03EC73C12B14B2CB001E94EB /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03E29F892B24E3FA00753FAA /* EditNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNotesView.swift; sourceTree = "<group>"; };
+		03E29F8B2B24EAEC00753FAA /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		03E29F8D2B24EF5500753FAA /* example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example.swift; sourceTree = "<group>"; };
 		03EC73BA2B14B2CA001E94EB /* Nogi Logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nogi Logger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03EC73BD2B14B2CA001E94EB /* Nogi_LoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nogi_LoggerApp.swift; sourceTree = "<group>"; };
 		03EC73BF2B14B2CA001E94EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,7 +66,10 @@
 			children = (
 				03EC73BD2B14B2CA001E94EB /* Nogi_LoggerApp.swift */,
 				03EC73BF2B14B2CA001E94EB /* ContentView.swift */,
+				03E29F8B2B24EAEC00753FAA /* WorkoutView.swift */,
+				03E29F8D2B24EF5500753FAA /* example.swift */,
 				03EC73D42B14C4E4001E94EB /* AddTrainingView.swift */,
+				03E29F892B24E3FA00753FAA /* EditNotesView.swift */,
 				03EC73D12B14B859001E94EB /* Store */,
 				03EC73CE2B14B5D2001E94EB /* Model */,
 				03EC73C12B14B2CB001E94EB /* Assets.xcassets */,
@@ -164,8 +173,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E29F8C2B24EAEC00753FAA /* WorkoutView.swift in Sources */,
 				03EC73C02B14B2CA001E94EB /* ContentView.swift in Sources */,
 				03EC73D02B14B84B001E94EB /* WorkoutStore.swift in Sources */,
+				03E29F8A2B24E3FA00753FAA /* EditNotesView.swift in Sources */,
+				03E29F8E2B24EF5500753FAA /* example.swift in Sources */,
 				03EC73BE2B14B2CA001E94EB /* Nogi_LoggerApp.swift in Sources */,
 				03EC73D32B14C421001E94EB /* Workout.swift in Sources */,
 				03EC73D52B14C4E4001E94EB /* AddTrainingView.swift in Sources */,

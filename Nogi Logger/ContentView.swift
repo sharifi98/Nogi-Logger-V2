@@ -13,8 +13,13 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            NavigationLink(destination: AddTrainingView()) {
-                Text("Add workout")
+            VStack {
+                
+            }
+            .toolbar {
+                NavigationLink(destination: AddTrainingView()) {
+                    Image(systemName: "plus")
+                }
             }
         }
     }
