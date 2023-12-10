@@ -10,11 +10,12 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var workoutStore = WorkoutStore()
+    //var workout: Workout
     
     var body: some View {
         NavigationStack {
             VStack {
-                
+                Text("hello")
             }
             .toolbar {
                 NavigationLink(destination: AddTrainingView()) {

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddTrainingView: View {
+    @EnvironmentObject var workoutStore: WorkoutStore
+    
     
     // Workout Configuration
     @State var selectedWorkoutName = "Gi"
@@ -55,7 +57,6 @@ struct AddTrainingView: View {
                     injuredSection
                     bodyweightSection
                     notesSection
-                        
                 }
                 
                 Section {
@@ -72,6 +73,13 @@ struct AddTrainingView: View {
             }
             .navigationBarTitle(Text(formattedCurrentDate()))
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Save") {
+                        saveWorkout()
+                    }
+                }
+            }
         }
     }
     
@@ -239,6 +247,23 @@ struct AddTrainingView: View {
         }
         .padding(.bottom)
     }
+    
+    private func saveWorkout() {
+        let newWorkout = Workout(name: name,
+                                 startTime: selectedStartTime,
+                                 endTime: selectedEndTime,
+                                 notes: notes, submissions: submissions,
+                                 taps: taps,
+                                 sweeps: sweeps,
+                                 takedowns: takedowns,
+                                 rounds: Int(rounds),
+                                 roundLength: roundLength,
+                                 bodyWeight: Double(bodyWeight)!,
+                                 injured: injured)
+        workoutStore.addWorkout(newWorkout)
+    }
+
+
     
     // showing the current MONTH and DAY date of today and not the specified workoutout date
     func formattedCurrentDate() -> String {

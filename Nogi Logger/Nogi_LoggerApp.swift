@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Nogi_LoggerApp: App {
+    @StateObject private var workoutStore = WorkoutStore()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(workoutStore) // Pass WorkoutStore as environment object
         }
     }
 }

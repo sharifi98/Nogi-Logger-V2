@@ -12,7 +12,7 @@ import Foundation
 
 
 // Struct for a grappling workout
-struct Workout: Identifiable, Codable {
+struct Workout: Identifiable, Codable, Hashable {
     var id = UUID()
     var name: String
     var startTime: Date

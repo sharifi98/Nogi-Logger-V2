@@ -1,35 +1,34 @@
-//
-//  WorkoutStore.swift
-//  Nogi Logger
-//
-//  Created by Hossein Sharifi on 27/11/2023.
-//
-
 import SwiftUI
+import Combine
 
-@Observable
-class WorkoutStore {
-
-    var workouts = [Workout]() {
+class WorkoutStore: ObservableObject {
+    @Published var workouts = [Workout]() {
         didSet {
-            if let encoded = try? JSONEncoder().encode(workouts) {
-                UserDefaults.standard.setValue(encoded, forKey: "Workouts")
-            }
+            saveWorkouts()
         }
     }
-    
+
     init() {
+        loadWorkouts()
+    }
+
+    func addWorkout(_ workout: Workout) {
+        workouts.append(workout)
+    }
+
+    private func saveWorkouts() {
+        if let encoded = try? JSONEncoder().encode(workouts) {
+            UserDefaults.standard.setValue(encoded, forKey: "Workouts")
+        }
+    }
+
+    private func loadWorkouts() {
         if let savedWorkouts = UserDefaults.standard.data(forKey: "Workouts") {
             if let decodedWorkouts = try? JSONDecoder().decode([Workout].self, from: savedWorkouts) {
                 workouts = decodedWorkouts
             }
         }
     }
-    
-    
-    var sample = Workout.sample
-    
-    
-    
-}
 
+    static var sample = Workout.sample
+}
